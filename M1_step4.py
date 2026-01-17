@@ -1,10 +1,9 @@
 import os
 import shutil
-pife = True
 
 while True:
 	print("Choose an option:\n")
-	print("1 - Organize a specific folder(PLEASE PROVIDE THE ABSOLUTE/ENTIRE PATH\n")
+	print("1 - Organize a specific folder(PLEASE PROVIDE THE ABSOLUTE/ENTIRE PATH)\n")
 	print("2 - Quit\n") 
 	choice = input("")
 
@@ -13,7 +12,7 @@ while True:
 		base = os.path.abspath(base)
 
 		if not os.path.exists(base):
-			print("Folder not found:", base)
+			print("\nFolder not found:", base)
 			continue
 
 		folders = {
