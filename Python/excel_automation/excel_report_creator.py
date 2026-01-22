@@ -19,9 +19,10 @@ def menu():
 
 def option_1():
     input_file = input("Excel file name (must be in this folder): ")
-    output_name = input("New file name (without .xlsx, IF AN EXCEL FILE WITH THE SAME NAME ALREADY EXISTS IT WILL BE OVERWRITEN, BE AWARE type n to cancel): ")
+    output_name = input("New file name (without .xlsx, IF AN EXCEL FILE WITH THE SAME NAME ALREADY EXISTS IT WILL BE OVERWRITEN, BE AWARE, type n to cancel): ")
 
     if output_name.lower() == "n":
+        print("Returning to the main menu.")
         return
 
     try:
