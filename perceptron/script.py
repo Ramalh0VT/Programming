@@ -21,9 +21,12 @@ ground_scroll = 0
 scroll_speed = 4
 
 while running:
+	clock.tick(fps)
 	screen.blit(ground, (ground_scroll,393))
-	screen.blit(bg, (0,0))
+	screen.blit(bg, (0,-80))
 	ground_scroll -= scroll_speed
+	if abs(ground_scroll) > 35:
+		ground_scroll = 0
 	for event in pygame.event.get():
 		if event.type == pygame.QUIT:
 			running = False	
