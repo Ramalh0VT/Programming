@@ -20,10 +20,30 @@ running = True
 ground_scroll = 0
 scroll_speed = 4
 
+class Bird(pygame.sprite.Sprite):
+	def __init__(self, x, y):
+		pygame.sprite.Sprite.__init__(self)
+		self.images = []
+		self.index = 0
+		self.counter = 0
+		for num in range(1,4):
+			img = pygame.image.load(f'img/bird{num}.png')
+			self.images.append(img)
+		self.image = self.images[self.index]
+		self.rect = self.image.get_rect()
+		self.rect.center = [x, y]
+
+bird_group = pygame.sprite.Group()
+
+flappy = Bird(100,int(screen_h / 2))
+
+bird_group.add(flappy)
+
 while running:
 	clock.tick(fps)
 	screen.blit(ground, (ground_scroll,393))
 	screen.blit(bg, (0,-80))
+	bird_group.draw(screen)
 	ground_scroll -= scroll_speed
 	if abs(ground_scroll) > 35:
 		ground_scroll = 0
