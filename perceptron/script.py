@@ -1,15 +1,27 @@
-from random import random
+import pygame
+from pygame import *
 
-randomize_amount = 100
-neurons = []
+pygame.init()
 
-while randomize_amount != 0:
-    cur_neuron = random()
-    neurons.append(cur_neuron)
-    randomize_amount -= 1
+screen_w = 864
+screen_h = 936
 
-inputs = [1,2]
+screen = pygame.display.set_mode((screen_w, screen_h))
+pygame.display.set_caption('AI Flappy Bird')
 
-for neuron in neurons:
-    
-    
+bg = pygame.image.load('img/bg.png')
+ground = pygame.image.load('img/ground.png')
+
+running = True
+
+ground_scroll = 0
+scroll_speed = 4
+
+while running:
+	screen.blit(ground, (ground_scroll,768))
+	screen.blit(bg, (0,0))
+	for event in pygame.event.get():
+		if event.type == pygame.QUIT:
+			running = False	
+	pygame.display.update()
+pygame.quit()
